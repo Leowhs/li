@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Lista de Compras</h2>
+    <input type="text" id="itemInput" placeholder="Adicionar item">
+    <button onclick="adicionarItem()">Adicionar</button>
+    <ul id="lista"></ul>
+    
+    <script>
+        function adicionarItem() {
+            let input = document.getElementById("itemInput");
+            let itemTexto = input.value.trim();
+            if (itemTexto === "") return;
+            
+            let lista = document.getElementById("lista");
+            let li = document.createElement("li");
+            
+            let checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            
+            let label = document.createElement("label");
+            label.textContent = " " + itemTexto;
+            
+            li.appendChild(checkbox);
+            li.appendChild(label);
+            lista.appendChild(li);
+            
+            input.value = "";
+        }
+    </script>
+</body>
+</html>
